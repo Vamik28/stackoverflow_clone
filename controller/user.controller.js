@@ -71,6 +71,7 @@ module.exports = class usercontroller extends BaseController {
                     // console.log(user);
                     // userData = [ user ]
                   }
+                  
 
               const requireData = {
                contact_no:userData[0].contact_no,
