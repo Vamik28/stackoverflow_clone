@@ -10,6 +10,9 @@ router.delete('/',UserAuth,(req, res) => question_Controller.question_Deletion(r
 router.get('/',UserAuth,(req, res) => question_Controller.list_all_question(req,res));
 router.get('/id',UserAuth,(req, res) => question_Controller.list_specific_question(req,res));
 
+router.post('/upvote',UserAuth,(req, res) => question_Controller.list_specific_question(req,res));
+router.post('/downvote',UserAuth,(req, res) => question_Controller.list_specific_question(req,res));
+
 // router.post("/login", (req, res) => question_Controller.user_login(req, res));
 
 module.exports = router;
