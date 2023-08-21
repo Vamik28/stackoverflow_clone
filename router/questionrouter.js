@@ -8,6 +8,7 @@ router.post('/',UserAuth,(req, res) => question_Controller.question_creation(req
 router.put('/',UserAuth,(req, res) => question_Controller.question_updation(req,res));
 router.delete('/',UserAuth,(req, res) => question_Controller.question_Deletion(req,res));
 router.get('/',UserAuth,(req, res) => question_Controller.list_all_question(req,res));
+router.get('/id',UserAuth,(req, res) => question_Controller.list_specific_question(req,res));
 
 // router.post("/login", (req, res) => question_Controller.user_login(req, res));
 

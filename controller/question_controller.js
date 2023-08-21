@@ -94,6 +94,50 @@ module.exports = class questioncontroller extends BaseController {
           return this.sendErrorResponse(req, res, error);
         }
       }
+      async list_all_question(req, res) {
+        try {
+          
+          const tokenData = req.userdata;
+          
+        const questionk_datas  = await questions_schema.find(); 
+          return this.sendJSONResponse(
+            res,
+            "Question List",
+            {
+              length: 1,
+            },
+            questionk_datas
+          );
+        } catch (error) {
+          if (error instanceof NotFound) {
+            throw error;
+          }
+          return this.sendErrorResponse(req, res, error);
+        }
+      }
+      async list_specific_question(req, res) {
+        try {
+          
+          const tokenData = req.userdata;
+          
+          const qid =  mongoose.Types.ObjectId(req.query.qid);
+            console.log(qid);
+        const questionk_datas  = await questions_schema.findById({_id:qid}); 
+          return this.sendJSONResponse(
+            res,
+            "Question BY id",
+            {
+              length: 1,
+            },
+            questionk_datas
+          );
+        } catch (error) {
+          if (error instanceof NotFound) {
+            throw error;
+          }
+          return this.sendErrorResponse(req, res, error);
+        }
+      }
     
 
 }
