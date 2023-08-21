@@ -11,7 +11,7 @@ var app = express();
 var logger = require('morgan');
 var mongoCon = require("./config/db");
 var user_router = require('./router/user.detailsrouter');
-
+var question_router = require('./router/questionrouter');
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -27,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use('/api/user',user_router);
+app.use('/api/question',question_router);
 // app.use('/api/admin',admin_router);
 // catch 404 and forward to error handler
 

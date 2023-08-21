@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const Questions = new mongoose.Schema({
+const questions = new mongoose.Schema({
     question:{
-        type: string,
+        type: String,
         required:true
     },
     user_id:{
@@ -18,12 +18,12 @@ const Questions = new mongoose.Schema({
         type: Number,
     },
     Comments:{
-        type :[string],
+        type :[String],
     }
 },{
     timestamps: true
 });
 
-const user_detail_schema = new mongoose.model('user_detail',user_detail);
+const questions_schema = new mongoose.model('questions',questions);
 
-module.exports = user_detail_schema;
+module.exports = questions_schema;
